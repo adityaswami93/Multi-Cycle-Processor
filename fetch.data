@@ -1,0 +1,8 @@
+@00 // control flow test code
+
+                                      /* straight-line execution */
+/*00*/ 00001010             //        add     r1,r1
+/*01*/ 00001010             //        add     r1,r1
+/*02*/ 00001010             //        add     r1,r1
+/*03*/ 00001010             //        add     r1,r1
+/*04*/ 00001010             //        add     r1,r1

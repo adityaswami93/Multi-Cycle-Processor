@@ -1,0 +1,24 @@
+@00 // test loads and stores
+
+                                      /* move 0xAA from mem[128] to r1 and
+                                       * back */
+/*00*/ 10100xxx 10000000    //        mvi     r0,#128
+/*02*/ 10001001             //        mv      r1,[r0]
+/*03*/ 10001000             //        mv      [r0],r1
+
+                                      /* add 0x55 from mem[129] to r1, add
+                                       * to r1 and write result (=0xFF)
+                                       * to mem[128] */
+/*04*/ 00100xxx 00000001    //        addi    r0,#1
+/*06*/ 00001001             //        add     r1,[r0]
+/*07*/ 01100xxx 00000001    //        subi    r0,#1
+/*09*/ 10001000             //        mv      [r0],r1
+
+                                      /* subtract 1 from mem[128] (=0xFE) */
+/*0A*/ 10101xxx 00000001    //        mvi     r1,#1
+/*0C*/ 01001000             //        sub     [r0],r1
+/*0D*/ 00001010             //        do nothing (add r1,r1)
+
+@80 // data
+/*80*/ 10101010             //        0xAA
+/*81*/ 01010101             //        0x55
